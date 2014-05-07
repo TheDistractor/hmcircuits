@@ -1,0 +1,58 @@
+#Read a Text file, output first delayed by 200ms, then sent to FanOut, 
+#fo.Pin1 sent to console line printer.
+#fo.Pin2 sent to Pipe where its output is sent to the sink 'snk' and is eaten up.
+---
+  init: 
+    gadgets: 
+      - 
+        name: "dummy"
+        type: "Pipe"
+      - 
+        name: "rft"
+        type: "ReadFileText"
+      - 
+        name: "p"
+        type: "Printer"
+      -
+        name: "d"
+        type: "Delay"  
+      -
+        name: "fo"
+        type: "FanOut"
+      -
+        name: "pipe"
+        type: "Pipe"
+      -
+        name: "snk"
+        type: "Sink"
+    wires:
+      - 
+        from: "rft.Out"
+        to: "d.In"
+      - 
+        from: "d.Out"
+        to: "fo.In"
+      -
+        from: "fo.Out:pin1"
+        to: "p.In"
+      -
+        from: "fo.Out:pin2"
+        to: "pipe.In"
+      -
+        from: "pipe.Out"
+        to: "snk.In"
+    feeds:
+      -
+        data: "setup.json"
+        to: "rft.In"
+      -
+        data: "200ms"
+        to: "d.Delay"
+    labels: 
+      - 
+        external: "In"
+        internal: "dummy.In"
+      - 
+        external: "Out"
+        internal: "dummy.Out"
+

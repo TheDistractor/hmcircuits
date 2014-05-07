@@ -1,0 +1,33 @@
+#Read environment variable and make a Tagged message from it.
+#warning: using env.In from a feed will close the pin - used only as a demonstration.
+---
+  init: 
+    gadgets: 
+      - 
+        name: "dummy"
+        type: "Pipe"
+      - 
+        name: "env"
+        type: "EnvVar"
+      - 
+        name: "at"
+        type: "AddTag"
+    wires:
+      -
+        from: "env.Out"
+        to: "at.In"
+    feeds:
+      -
+        data: "PATH"
+        to: "env.In"
+      -
+        data: "YOUR_PATH"
+        to: "at.Tag"
+    labels: 
+      - 
+        external: "In"
+        internal: "dummy.In"
+      - 
+        external: "Out"
+        internal: "dummy.Out"
+

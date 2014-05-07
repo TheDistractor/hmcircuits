@@ -1,0 +1,40 @@
+#Read environment variable and make a Tagged message from it.
+#warning: using env.In from a feed will close the pin - used only as a demonstration.
+#export DURATION="2s" from your shell
+---
+  init: 
+    gadgets: 
+      - 
+        name: "dummy"
+        type: "Pipe"
+      - 
+        name: "env"
+        type: "EnvVar"
+      - 
+        name: "clock"
+        type: "Clock"
+      - 
+        name: "at"
+        type: "AddTag"
+    wires:
+      -
+        from: "env.Out"
+        to: "clock.In"
+      -
+        from: "clock.Out"
+        to: "at.In"
+    feeds:
+      -
+        data: "DURATION"
+        to: "env.In"
+      -
+        data: "TICK"
+        to: "at.Tag"
+    labels: 
+      - 
+        external: "In"
+        internal: "dummy.In"
+      - 
+        external: "Out"
+        internal: "dummy.Out"
+

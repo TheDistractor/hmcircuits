@@ -1,0 +1,17 @@
+#main index file for 0.9.0 hmcircuits tutorial-1
+---
+  circuits:
+    - setup-master.yaml
+    - "minimal.yaml"
+    - "clock1.yaml"
+    - "clock2.yaml"
+    - "readtext1.yaml"
+    - "readtext2.yaml"
+    - "readtext3.yaml"
+    - "readtext4.yaml"
+    - "readtext5.yaml"
+    - "readtext6.yaml"
+    - "two-messages.yaml"
+    - "tagging.yaml"
+    - "envtick.yaml"
+

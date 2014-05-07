@@ -1,0 +1,22 @@
+#A Clock losing its output.
+---
+  init: 
+    gadgets: 
+      - 
+        name: "dummy"
+        type: "Pipe"
+      - 
+        name: "c"
+        type: "Clock"
+    feeds:
+      -
+        data: "1s"
+        to: "c.In"
+    labels: 
+      - 
+        external: "In"
+        internal: "dummy.In"
+      - 
+        external: "Out"
+        internal: "dummy.Out"
+

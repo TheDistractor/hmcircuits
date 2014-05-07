@@ -1,0 +1,30 @@
+#A Clock sending its output to console line printer.
+---
+  init: 
+    gadgets: 
+      - 
+        name: "dummy"
+        type: "Pipe"
+      - 
+        name: "c"
+        type: "Clock"
+      - 
+        name: "p"
+        type: "Printer"
+    wires:
+      -
+        from: "c.Out"
+        to: "p.In"
+    feeds:
+      -
+        data: "1s"
+        to: "c.In"
+        
+    labels: 
+      - 
+        external: "In"
+        internal: "dummy.In"
+      - 
+        external: "Out"
+        internal: "dummy.Out"
+

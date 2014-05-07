@@ -1,0 +1,30 @@
+#Read a Text file, output is sent to console line printer.
+---
+  init: 
+    gadgets: 
+      - 
+        name: "dummy"
+        type: "Pipe"
+      - 
+        name: "rft"
+        type: "ReadFileText"
+      - 
+        name: "p"
+        type: "Printer"
+    wires:
+      -
+        from: "rft.Out"
+        to: "p.In"
+    feeds:
+      -
+        data: "setup.json"
+        to: "rft.In"
+        
+    labels: 
+      - 
+        external: "In"
+        internal: "dummy.In"
+      - 
+        external: "Out"
+        internal: "dummy.Out"
+

@@ -1,0 +1,23 @@
+#Read a Text file, output is lost.
+---
+  init: 
+    gadgets: 
+      - 
+        name: "dummy"
+        type: "Pipe"
+      - 
+        name: "rft"
+        type: "ReadFileText"
+    feeds:
+      -
+        data: "setup.json"
+        to: "rft.In"
+        
+    labels: 
+      - 
+        external: "In"
+        internal: "dummy.In"
+      - 
+        external: "Out"
+        internal: "dummy.Out"
+

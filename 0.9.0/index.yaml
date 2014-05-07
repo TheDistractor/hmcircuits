@@ -1,6 +1,7 @@
-#main index file for 0.9.0 circuits tutorial
 ---
-  circuits:
-    - setup-master.yaml
-    - example1.yaml
-    - example2.yaml
+  index:
+    -
+      description: "hmcircuits 0.9.0 - Tutorial 1"
+      provider: "http"
+      endpoint: "https://raw.githubusercontent.com/TheDistractor/hmcircuits/master/0.9.0/tutorial-1/index.yaml"
+

@@ -1,0 +1,15 @@
+#A minimal HouseMon 0.9.0 Circuit - does 'almost' nothing.
+---
+  init: 
+    gadgets: 
+      - 
+        name: "dummy"
+        type: "Pipe"
+    labels: 
+      - 
+        external: "In"
+        internal: "dummy.In"
+      - 
+        external: "Out"
+        internal: "dummy.Out"
+
