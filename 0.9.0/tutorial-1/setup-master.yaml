@@ -71,7 +71,7 @@
         to: "db.In"
     feeds: 
       - 
-        data: ":1883"
+        data: "127.0.0.1:1883"
         to: "mqtt.Port"
       - 
         data: "/"
